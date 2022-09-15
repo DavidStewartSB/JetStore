@@ -23,11 +23,11 @@ const routes: Routes = [
     component: ProductListComponent
   },
   {
-    path: 'formulario',
+    path: 'produtos/formulario',
     component: ProductFormComponent
   },
   {
-    path: 'formulario/:id',
+    path: 'produtos/formulario/:id',
     component: ProductFormComponent
   }
 ];
