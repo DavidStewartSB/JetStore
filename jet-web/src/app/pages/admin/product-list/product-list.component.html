@@ -6,9 +6,9 @@
 
     <div class="bg-white rounded w-full">
         <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Nome do Produto</th>
+            <thead class="align-middle">
+              <tr class="text-center">
+                <th scope="col" class="text-start py-4 px-4">Nome do Produto</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Preço Promoção</th>
                 <th scope="col">Estoque</th>
@@ -16,14 +16,22 @@
                 <th scope="col">Ações</th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let product of products">
-                <th scope="row">{{product.name}}</th>
-                <td>{{product.name}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.name}}</td>
+            <tbody class="align-middle">
+              <tr *ngFor="let product of products" class="text-center">
+                <th scope="row" class="text-start  py-4 px-4">{{product.name}}</th>
+                <td>{{product.price | currency: "BRL"}}</td>
+                <td>{{product.promo | currency: "BRL"}}</td>
+                <td>{{product.countInStock}}</td>
+                <td>
+                  <button>
+                    <i class="fa-solid fa-eye text-2xl text-blue-700"></i>
+                  </button>
+                </td>
+                <td>
+                  <button>
+                    <i class="fa-solid fa-ellipsis text-3xl text-blue-700"></i>
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -31,6 +39,6 @@
     </div>
 
     <div class="flex justify-end bg-gray-200 p-4 rounded my-10">
-        <button class="bg-blue-900 text-white py-2 px-5 rounded ml-3 text-center" routerLink="/formulario">Cadastrar novo produto</button>
+        <button class="bg-blue-900 text-white py-2 px-5 rounded ml-3 text-center" routerLink="formulario">Cadastrar novo produto</button>
     </div>
 </div>
