@@ -15,6 +15,7 @@ ProductListComponent,ProductFormComponent,HeaderComponent, FooterComponent]
 //Services
 import { CategoryService } from './util/services/category.service'
 import { ProductsService } from './util/services/product.service'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 //Styles libs
 
 
@@ -25,6 +26,8 @@ import { ProductsService } from './util/services/product.service'
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

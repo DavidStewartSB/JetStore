@@ -1,47 +1,69 @@
-<div class="mx-5 md:mx-auto bg-white h-full my-10 rounded">
+<div class="mx-2 md:mx-auto bg-white  my-10 rounded ">
     <div class="grid grid-cols-1 md:grid-cols-2 py-10 px-5">
-        <div class="md:ml-10 border-r border-black">
-            <h5 class="text-3xl font-bold py-5">Informações Principais</h5>
-
-            <div> 
-                <span>status</span> 
-            </div>
-
-            <div>
-                <label for="">Nome do produto</label>
-                <input type="text">
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 mb-10">
-                <div>
-                    <label for="">Estoque</label>
-                    <input type="text">
+        <div class=" border-b my-8 px-0 md:px-5 md:border-b-transparent md:border-r border-gray-300">
+            <h5 class="text-xl font-bold py-3">Informações Principais</h5>
+            <form [formGroup]="form" class="row g-3 md:mx-5"> <!--Grid do bootstrap-->
+              <div class="col-12">
+                <div class="form-check form-switch ">
+                    <input formControlName="status" class="form-check-input h4" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label text-start h4" for="flexSwitchCheckDefault">Status</label>
                 </div>
-                <div>
-                    <label for="">Preço</label>
-                    <input type="text">
+              </div>
+                <div class="col-md-12">
+                  <label for="inputEmail4" class="form-label">Nome do Produto</label>
+                  <input formControlName="name" type="text" class="form-control bg-gray-100" id="name" placeholder="Digite o nome do produto">
                 </div>
-                <div>
-                    <label for="">Preço Promocional</label>
-                    <input type="text">
+                <div class="col-md-4">
+                  <label for="inputPassword4" class="form-label">Estoque</label>
+                  <input formControlName="stock" type="number" class="form-control bg-gray-100" id="stock" placeholder="Quantidade">
                 </div>
-            </div>
+                <div class="col-md-4">
+                  <label for="inputAddress" class="form-label">Preço</label>
+                  <input formControlName="price" type="number" class="form-control bg-gray-100" id="price" placeholder="Ex: 10.00">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputAddress2" class="form-label">Preço Promocional</label>
+                  <input formControlName="promoPrice" type="number" class="form-control bg-gray-100" id="promoPrice" placeholder="Ex: 5.99">
+                </div>
 
-            <div>
-                <label for="">Breve Descrição</label>
-            </div>
+                <div class="col-12 ">
+                  <label for="inputAddress2" class="form-label my-10">Descrição do produto</label>
+                  <textarea class="bg-gray-100 border border-black w-full p-2" formControlName="description" placeholder="Digite as descrições" name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+              </form>
         </div>
+
+        <!--Imagens-->
         <div class="md:ml-10">
-            <h5 class="text-3xl font-bold py-5">Informações Principais</h5>
-
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="">
-                    <label for="img">Príncipal</label>
-                </div>
-                <div>
-                    <label for="img">Alternativa</label>
-                </div>
+            <h5 class="text-xl font-bold py-5">Informações Principais</h5>
+          <form [formGroup]="form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+              <div>
+                <div class="pb-4">Principal</div>
+                <label class="bg-gray-500 w-full hover:opacity-50 border-dotted border-2 border-black">
+                  <img  for="imgPrimary" class="cursor-pointer" src="https://cdn.pixabay.com/photo/2017/11/10/05/24/add-2935429_960_720.png" alt="Imagem alternativa">
+                  <input formControlName="imgPrimary" type="file" accept="image/*" class="hidden" id="imgPrincipal">
+                </label>
+              </div>
+              <!-- ... -->
+              <div>
+                <div for="testando" class="pb-4">Alternativa</div>
+                <label class="bg-gray-500 w-full hover:opacity-50 border-dotted border-2 border-black">
+                  <img class="cursor-pointer " src="https://cdn.pixabay.com/photo/2017/11/10/05/24/add-2935429_960_720.png" alt="Imagem alternativa" for="alternativa">
+                  <input formControlName="imgSecondary" type="file" accept="image/*" class="hidden" id="alternativa">
+                </label>
+              </div>
             </div>
+            <div class="flex mt-4">
+              <span class="pr-3 py-3"><i class="fa-solid fa-triangle-exclamation text-2xl text-blue-300"></i></span>
+              <p>Extensões permitidas: <strong> "*.jpg" e "*.png"</strong><br> Recomendamos uma dimensação mínima de 1.000 x 1.000 tamanho <br> máximo: <strong>2md</strong></p>
+            </div>
+          </form>
         </div>
-    </div>
+      </div>
+</div>
+
+<div class="flex justify-end bg-gray-100 p-4 rounded my-10">
+  <button class="bg-white text-gray-600 py-2 px-5 rounded ml-3 text-center" routerLink="formulario" (click)="onCancel()">Cancelar</button>
+  <button class="bg-blue-900 text-white py-2 px-5 rounded ml-3 text-center" routerLink="formulario">Cadastrar novo produto</button>
 </div>
