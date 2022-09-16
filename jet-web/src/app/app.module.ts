@@ -17,7 +17,7 @@ import { CategoryService } from './util/services/category.service'
 import { ProductsService } from './util/services/product.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 //Styles libs
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [CategoryService, ProductsService],
   bootstrap: [AppComponent]

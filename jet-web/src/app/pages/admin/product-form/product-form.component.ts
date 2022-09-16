@@ -1,9 +1,8 @@
-import { ProductsService } from './../../../util/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from 'src/app/util/services/category.service';
+import { SweetAlertService, CategoryService, ProductsService } from '@util';
 
 @Component({
   selector: 'app-product-form',
@@ -26,7 +25,8 @@ export class ProductFormComponent implements OnInit {
     private location: Location,
     private router: Router,
     private route: ActivatedRoute,
-    private categoriesService: CategoryService
+    private categoriesService: CategoryService,
+    private alertService: SweetAlertService
   ) { }
 
   ngOnInit(): void {
@@ -62,7 +62,7 @@ export class ProductFormComponent implements OnInit {
   }
   private _addProduct(productData: FormData){
     this.productsService.createProduct(productData).subscribe({
-      next: () => alert('sucesso'),//this.alertService.successSwal('Produto atualizado com sucesso', 'sucesso')
+      next: () => this.alertService.successSwal('Produto atualizado com sucesso', 'sucesso'),
       error: () => alert('error'), //this.alertService.errorSwal('Erro ao editar Produto', 'Verifique os campos')
       complete: () => this.location.back() 
     })
