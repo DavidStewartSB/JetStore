@@ -13,7 +13,7 @@ import { CategoryService } from 'src/app/util/services/category.service';
 export class ProductFormComponent implements OnInit {
   form: any = FormGroup
   header: string = ''
-  copyButton = ''
+  copyButton = 'Adicionar'
   trigger = false
   editmode = false
   currentProductId: string = ''
@@ -87,6 +87,7 @@ export class ProductFormComponent implements OnInit {
           form.status.setValue(product.status)
           form.countInStock.setValue(product.countInStock)
           form.price.setValue(product.price)
+          form.category.setValue(product.category)
           form.promoPrice.setValue(product.promo)
           form.description.setValue(product.description)
           form.imgPrimary.setValue(product.image)
@@ -103,6 +104,7 @@ export class ProductFormComponent implements OnInit {
       countInStock: [ Validators.required],
       price: [ Validators.required],
       promoPrice: [ Validators.required],
+      category: ['', Validators.required],
       description: ['', Validators.required],
       imgPrimary: ['', Validators.required],
       imgSecondary: ['']
